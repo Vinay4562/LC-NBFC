@@ -1,10 +1,6 @@
 {
-  "projects": [
-    {
-      "rootDirectory": "lc-nbfc-stepper",
-      "buildCommand": "npm run build",
-      "outputDirectory": "dist",
-      "framework": "vite"
-    }
-  ]
+  "rootDirectory": "lc-nbfc-stepper",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
