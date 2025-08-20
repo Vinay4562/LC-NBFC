@@ -64,3 +64,53 @@ html,body,#root{height:100%; margin:0; background:linear-gradient(180deg,#041026
 .action-buttons{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
 
 .small{font-size:12px;color:var(--muted)}
+
+/* Responsive layout overrides for tablet and mobile */
+@media (max-width: 1200px) {
+  /* Constrain overall width slightly earlier on medium screens */
+  #root > div { max-width: 1000px !important; }
+}
+
+@media (max-width: 992px) {
+  /* Two-column layout: narrow the right panel */
+  #root main { grid-template-columns: 1fr 320px !important; }
+  #root header { gap: 10px !important; }
+}
+
+@media (max-width: 768px) {
+  /* Stack header content and make controls wrap */
+  #root header { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+  #root header > div:last-child { flex-wrap: wrap !important; width: 100% !important; }
+  #root header select { width: 100% !important; }
+  #root header .proc-switch { width: 100% !important; justify-content: space-between; }
+
+  /* Stack main content: section above aside */
+  #root main { display: block !important; }
+  #root section { margin-bottom: 14px !important; }
+
+  /* Comfortable spacing on small screens */
+  #root > div { padding: 14px !important; margin: 14px auto !important; }
+  #root section, #root aside { padding: 12px !important; }
+
+  /* Collapse any two-column grids (e.g., checklist) to single column */
+  #root section [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+
+  /* Buttons/controls: allow wrapping and full width when needed */
+  #root .action-buttons { flex-wrap: wrap !important; }
+  #root button, #root .btn { font-size: 14px; }
+
+  /* Progress container: allow it to shrink naturally */
+  #root .progress-area, #root [style*="width: 220px"] { width: 100% !important; max-width: 100% !important; }
+}
+
+@media (max-width: 480px) {
+  /* Smaller typography for very small devices */
+  #root h1 { font-size: 18px !important; }
+  #root h2 { font-size: 16px !important; }
+  #root h3 { font-size: 15px !important; }
+  #root .muted, #root [style*="font-size: 13px"], #root [style*="font-size: 12px"] { font-size: 12px !important; }
+
+  /* Tighten paddings */
+  #root section, #root aside { padding: 10px !important; }
+  #root .step-actions { gap: 10px !important; }
+}
